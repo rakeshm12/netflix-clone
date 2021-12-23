@@ -1,0 +1,121 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:netflix_ui/widgets/custom_button.dart';
+import 'package:netflix_ui/widgets/page_dots.dart';
+
+class CarouselPage extends StatefulWidget {
+  const CarouselPage({Key? key}) : super(key: key);
+
+  @override
+  _CarouselPageState createState() => _CarouselPageState();
+}
+
+class _CarouselPageState extends State<CarouselPage> {
+  final PageController controller = PageController(initialPage: 0);
+  int currentPage = 0;
+
+  @override
+  void initState() {
+    Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (currentPage < 4) {
+        currentPage++;
+      } else {
+        currentPage = 0;
+      }
+      controller.animateToPage(currentPage,
+          duration: const Duration(seconds: 2), curve: Curves.ease);
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    PageController().dispose();
+    super.dispose();
+  }
+
+  onPageChanged(int index) {
+    setState(() {
+      currentPage = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        leading: Image.asset(
+          'assets/logo.png',
+          fit: BoxFit.cover,
+        ),
+        actions: [
+          TextButton(
+              onPressed: () {},
+              child: const Text(
+                'PRIVACY',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    color: Colors.white),
+              )),
+          TextButton(
+              onPressed: () {},
+              child: const Text(
+                'SIGN IN',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    color: Colors.white),
+              )),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
+        ],
+      ),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Expanded(
+              child: Stack(
+                children: [
+                  PageView(
+                    physics: const ScrollPhysics(),
+                    controller: controller,
+                    onPageChanged: onPageChanged,
+                    children: [
+                      Image.asset(
+                        'assets/first.png',
+                        fit: BoxFit.fill,
+                      ),
+                      Image.asset('assets/second.png', fit: BoxFit.fill),
+                      Image.asset('assets/third.png', fit: BoxFit.fill),
+                      Image.asset('assets/fourth.png', fit: BoxFit.fill),
+                    ],
+                  ),
+                  Positioned(
+                      bottom: 10,
+                      left: 130,
+                      child: Row(
+                        children: List.generate(
+                            4,
+                            (index) => index == currentPage
+                                ? PageDots(isTrue: true)
+                                : PageDots(isTrue: false)),
+                      )),
+                ],
+              ),
+            ),
+            CustomButton(
+              onTap: () {},
+              text: 'GET STARTED',
+              width: 100,
+              padding: 10.0,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
