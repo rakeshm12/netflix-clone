@@ -8,9 +8,8 @@ class PageDots extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-        duration: const Duration(milliseconds: 100),
-      margin: EdgeInsets.all(10),
+    return Container(
+      margin: const EdgeInsets.all(10),
       height: 10,
       width: 10,
       decoration: BoxDecoration(

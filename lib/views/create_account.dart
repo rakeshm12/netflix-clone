@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
-import 'package:netflix_ui/views/plan_page.dart';
+
+import 'package:netflix_ui/views/choose_plan.dart';
 import 'package:netflix_ui/widgets/app_bar.dart';
 import 'package:netflix_ui/widgets/custom_button.dart';
 
@@ -14,8 +13,8 @@ class CreateAccount extends StatefulWidget {
 }
 
 class _CreateAccountState extends State<CreateAccount> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final  _emailController = TextEditingController();
+  final  _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +104,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   if(_emailController.text.isEmpty || _passwordController.text.isEmpty){
                     return ;
                   } else{
-                    Get.to(const PlanPage());
+                    Get.to(const ChoosePlan());
                   }
                 },
                 text: const Text(

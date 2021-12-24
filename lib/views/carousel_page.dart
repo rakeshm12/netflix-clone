@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:netflix_ui/views/get_started.dart';
+import 'package:netflix_ui/views/sign_in.dart';
 import 'package:netflix_ui/widgets/custom_button.dart';
 import 'package:netflix_ui/widgets/page_dots.dart';
 
@@ -66,7 +67,7 @@ class _CarouselPageState extends State<CarouselPage> {
                     color: Colors.white),
               )),
           TextButton(
-              onPressed: () {},
+              onPressed: () => Get.to(const SigninPage()),
               child: const Text(
                 'SIGN IN',
                 style: TextStyle(

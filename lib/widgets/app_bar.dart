@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:netflix_ui/views/sign_in.dart';
 
 final appBar = AppBar(
   elevation: 0.0,
@@ -23,7 +25,10 @@ final appBar = AppBar(
               color: Colors.white),
         )),
     TextButton(
-      onPressed: () {},
+      onPressed: () {
+        Get.to(SigninPage()).obs;
+        print('something');
+      },
       child: const Text(
         'SIGN IN',
         style: TextStyle(

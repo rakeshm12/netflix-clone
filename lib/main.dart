@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: ThemeData.dark().copyWith(
-        backgroundColor: Colors.black,
+        // backgroundColor: Colors.black,
         appBarTheme: const AppBarTheme(color: Color(0xFF0d0403)),
         scaffoldBackgroundColor: const Color(0xFF0d0403),
         primaryColor: Colors.red.shade600,
@@ -26,4 +26,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
