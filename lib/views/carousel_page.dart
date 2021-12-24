@@ -1,6 +1,8 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'package:netflix_ui/views/get_started.dart';
 import 'package:netflix_ui/widgets/custom_button.dart';
 import 'package:netflix_ui/widgets/page_dots.dart';
 
@@ -12,22 +14,24 @@ class CarouselPage extends StatefulWidget {
 }
 
 class _CarouselPageState extends State<CarouselPage> {
-  final PageController controller = PageController(initialPage: 0);
+  final PageController _pageController = PageController(initialPage: 0);
   int currentPage = 0;
+  bool _isLoading = false;
 
-  @override
-  void initState() {
-    Timer.periodic(const Duration(seconds: 3), (timer) {
-      if (currentPage < 4) {
-        currentPage++;
-      } else {
-        currentPage = 0;
-      }
-      controller.animateToPage(currentPage,
-          duration: const Duration(seconds: 2), curve: Curves.ease);
-    });
-    super.initState();
-  }
+//uncomment for auto scrolling fn
+  // @override
+  // void initState() {
+  //   Timer.periodic(const Duration(seconds: 3), (timer) {
+  //     if (currentPage < 4) {
+  //       currentPage++;
+  //     } else {
+  //       currentPage = 0;
+  //     }
+  //     _pageController.animateToPage(currentPage,
+  //         duration: const Duration(seconds: 2), curve: Curves.ease);
+  //   });
+  //   super.initState();
+  // }
 
   @override
   void dispose() {
@@ -82,7 +86,7 @@ class _CarouselPageState extends State<CarouselPage> {
                 children: [
                   PageView(
                     physics: const ScrollPhysics(),
-                    controller: controller,
+                    controller: _pageController,
                     onPageChanged: onPageChanged,
                     children: [
                       Image.asset(
@@ -108,9 +112,25 @@ class _CarouselPageState extends State<CarouselPage> {
               ),
             ),
             CustomButton(
-              onTap: () {},
-              text: 'GET STARTED',
-              width: 100,
+              onTap: () {
+                setState(() {
+                  _isLoading = true;
+                });
+                Get.to(const GetStartedPage())!.then((value) {
+                  setState(() {
+                    _isLoading = false;
+                  });
+                });
+              },
+              text: _isLoading
+                  ? const CircularProgressIndicator(
+                      color: Colors.white,
+                      strokeWidth: 2.0,
+                    )
+                  : const Text(
+                      'GET STARTED',
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
               padding: 10.0,
             )
           ],

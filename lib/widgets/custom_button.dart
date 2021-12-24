@@ -4,13 +4,12 @@ class CustomButton extends StatelessWidget {
   const CustomButton(
       {Key? key,
         required this.onTap,
-        required this.text, required this.width, required this.padding,
+        required this.text, required this.padding,
       })
       : super(key: key);
 
   final Function() onTap;
-  final String text;
-  final double width;
+  final Widget text;
   final double padding;
 
   @override
@@ -26,11 +25,7 @@ class CustomButton extends StatelessWidget {
           width: double.maxFinite,
           height: 43,
           color: const Color(0xFFdb2612),
-          child: Text(
-            text,
-            style: const TextStyle(
-                fontSize: 18,color: Colors.white),
-          ),
+          child: text
         ),
       ),
     );
