@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class PageDots extends StatelessWidget {
   PageDots( {Key? key, required this.isTrue}) : super(key: key);
 

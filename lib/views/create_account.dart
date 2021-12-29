@@ -13,8 +13,8 @@ class CreateAccount extends StatefulWidget {
 }
 
 class _CreateAccountState extends State<CreateAccount> {
-  final  _emailController = TextEditingController();
-  final  _passwordController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -101,10 +101,12 @@ class _CreateAccountState extends State<CreateAccount> {
             ),
             CustomButton(
                 onTap: () {
-                  if(_emailController.text.isEmpty || _passwordController.text.isEmpty){
-                    return ;
-                  } else{
+                  if (_emailController.text.contains(RegExp(
+                          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")) &&
+                      _passwordController.text.characters.length >= 6) {
                     Get.to(const ChoosePlan());
+                  } else {
+                    return;
                   }
                 },
                 text: const Text(

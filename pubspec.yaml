@@ -36,8 +36,14 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.1
   readmore: ^2.1.0
+  font_awesome_flutter: ^9.2.0
+  razorpay_flutter: ^1.2.7
+  url_launcher: ^6.0.17
+  lottie: ^1.2.1
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
+  http: ^0.13.4
   flutter_test:
     sdk: flutter
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:netflix_ui/views/carousel_page.dart';
+import 'package:netflix_ui/views/home_page.dart';
 import 'package:netflix_ui/views/splash_screen.dart';
 
 void main() {
@@ -18,11 +20,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData.dark().copyWith(
         // backgroundColor: Colors.black,
-        appBarTheme: const AppBarTheme(color: Color(0xFF0d0403)),
-        scaffoldBackgroundColor: const Color(0xFF0d0403),
+        appBarTheme: const AppBarTheme(color: Colors.black),
+        scaffoldBackgroundColor: Colors.black,
         primaryColor: Colors.red.shade600,
       ),
-      home: const SplashScreen(),
+      home: const HomePage(),
     );
   }
 }

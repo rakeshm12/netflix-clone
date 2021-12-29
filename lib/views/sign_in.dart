@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:netflix_ui/views/choose_plan.dart';
+import 'package:netflix_ui/views/create_account.dart';
 import 'package:readmore/readmore.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({Key? key}) : super(key: key);
@@ -23,7 +25,9 @@ class _SigninPageState extends State<SigninPage> {
         leadingWidth: 200,
         leading: Row(
           children: [
-            IconButton(onPressed: () => Get.back(), icon: const Icon(Icons.arrow_back)),
+            IconButton(
+                onPressed: () => Get.back(),
+                icon: const Icon(Icons.arrow_back)),
             Expanded(
               child: Image.asset(
                 'assets/netflix.png',
@@ -85,7 +89,15 @@ class _SigninPageState extends State<SigninPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: OutlinedButton(
-                  onPressed: () => Get.to(const ChoosePlan()),
+                  onPressed: () {
+                    if (emailController.text.isEmpty ||
+                        passwordController.text.isEmpty) {
+                      return;
+                    } else {
+
+                      Get.off( () => ChoosePlan());
+                    }
+                  },
                   child: const Text(
                     'Sign In',
                     style: TextStyle(
@@ -108,19 +120,43 @@ class _SigninPageState extends State<SigninPage> {
                 ),
               ),
               Column(
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 30),
-                    child: Text(
-                      "\n\nNeed help? \n\n\nNew to Netflix? Sign up now.",
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      setState(() {
+                        _launchURL();
+                      });
+
+                    },
+                    child: const Text(
+                      " Need help?",
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
-                  SizedBox(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("New to Netflix?"),
+                        TextButton(
+                          onPressed: () => Get.to(const CreateAccount()),
+                          child: const Text(
+                            " Sign up now.",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
                     height: 20,
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 30),
                     child: ReadMoreText(
                       "Sign in is protected by Google reCAPTCHA to ensure you're not \na bot. \n\nThe information collected by Google reCAPTCHA is subject to \nthe Google Privacy Policy and Terms of Service, and is used for \nproviding, maintaining, and improving the reCAPTCHA service \nand for general security purpose(it is not used for personalized advertising by Google).",
@@ -141,5 +177,13 @@ class _SigninPageState extends State<SigninPage> {
         ),
       ),
     );
+  }
+}
+
+void _launchURL() async {
+  try {
+    if (!await launch('https://www.netflix.com/in/loginhelp')) {}
+  } catch (e) {
+    print(e);
   }
 }

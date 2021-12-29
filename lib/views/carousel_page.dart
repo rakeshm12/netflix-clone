@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -36,7 +35,7 @@ class _CarouselPageState extends State<CarouselPage> {
 
   @override
   void dispose() {
-    PageController().dispose();
+    _pageController.dispose();
     super.dispose();
   }
 
@@ -50,8 +49,9 @@ class _CarouselPageState extends State<CarouselPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
         leading: Image.asset(
           'assets/logo.png',
           fit: BoxFit.cover,
@@ -78,64 +78,62 @@ class _CarouselPageState extends State<CarouselPage> {
           IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
         ],
       ),
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Expanded(
-              child: Stack(
-                children: [
-                  PageView(
-                    physics: const ScrollPhysics(),
-                    controller: _pageController,
-                    onPageChanged: onPageChanged,
-                    children: [
-                      Image.asset(
-                        'assets/first.png',
-                        fit: BoxFit.fill,
-                      ),
-                      Image.asset('assets/second.png', fit: BoxFit.fill),
-                      Image.asset('assets/third.png', fit: BoxFit.fill),
-                      Image.asset('assets/fourth.png', fit: BoxFit.fill),
-                    ],
-                  ),
-                  Positioned(
-                      bottom: 10,
-                      left: 130,
-                      child: Row(
-                        children: List.generate(
-                            4,
-                            (index) => index == currentPage
-                                ? PageDots(isTrue: true)
-                                : PageDots(isTrue: false)),
-                      )),
-                ],
-              ),
-            ),
-            CustomButton(
-              onTap: () {
-                setState(() {
-                  _isLoading = true;
-                });
-                Get.to(const GetStartedPage())!.then((value) {
-                  setState(() {
-                    _isLoading = false;
-                  });
-                });
-              },
-              text: _isLoading
-                  ? const CircularProgressIndicator(
-                      color: Colors.white,
-                      strokeWidth: 2.0,
-                    )
-                  : const Text(
-                      'GET STARTED',
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Expanded(
+            child: Stack(
+              children: [
+                PageView(
+                  physics: const ScrollPhysics(),
+                  controller: _pageController,
+                  onPageChanged: onPageChanged,
+                  children: [
+                    Image.asset(
+                      'assets/first.png',
+                      fit: BoxFit.contain,
                     ),
-              padding: 10.0,
-            )
-          ],
-        ),
+                    Image.asset('assets/second.png', fit: BoxFit.contain),
+                    Image.asset('assets/third.png', fit: BoxFit.contain),
+                    Image.asset('assets/fourth.png', fit: BoxFit.contain),
+                  ],
+                ),
+                Positioned(
+                    bottom: 10,
+                    left: 130,
+                    child: Row(
+                      children: List.generate(
+                          4,
+                          (index) => index == currentPage
+                              ? PageDots(isTrue: true)
+                              : PageDots(isTrue: false)),
+                    )),
+              ],
+            ),
+          ),
+          CustomButton(
+            onTap: () {
+              setState(() {
+                _isLoading = true;
+              });
+              Get.to(const GetStartedPage())!.then((value) {
+                setState(() {
+                  _isLoading = false;
+                });
+              });
+            },
+            text: _isLoading
+                ? const CircularProgressIndicator(
+                    color: Colors.white,
+                    strokeWidth: 2.0,
+                  )
+                : const Text(
+                    'GET STARTED',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+            padding: 10.0,
+          )
+        ],
       ),
     );
   }

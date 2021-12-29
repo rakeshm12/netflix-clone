@@ -10,7 +10,7 @@ class ChoosePlan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar,
+      appBar: appBarLoggedIn,
       body : Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -27,7 +27,7 @@ class ChoosePlan extends StatelessWidget {
               title: const Text('Everything on Netflix for one low price.'),),
             ListTile(leading: Icon(Icons.check, size: 20, color: Colors.red.shade900,),
               title: const Text('No ads and no extra fees. Ever.'),),
-            CustomButton(onTap: () => Get.to(PlansPage()), text: Text("SEE THE PLANS", style: const TextStyle(fontWeight: FontWeight.bold),), padding: 20)
+            CustomButton(onTap: () => Get.to(const PlansPage()), text: const Text("SEE THE PLANS", style: TextStyle(fontWeight: FontWeight.bold),), padding: 20)
           ],
         ),
       ),

@@ -1,44 +1,60 @@
-import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';
+import 'package:netflix_ui/widgets/payment_success.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
-class TransactionPage extends StatefulWidget {
-  const TransactionPage({Key? key}) : super(key: key);
+class PaymentController extends GetxController {
+
+  final Razorpay _razorPay = Razorpay();
 
   @override
-  _TransactionPageState createState() => _TransactionPageState();
-}
-
-class _TransactionPageState extends State<TransactionPage> {
-  final _razorpay = Razorpay();
-
-  @override
-  void initState() {
-    _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
-    _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
-    _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
-    super.initState();
+  void onInit() {
+    _razorPay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
+    _razorPay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
+    _razorPay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
+    super.onInit();
   }
 
+
+
+  void _handlePaymentSuccess(PaymentSuccessResponse response) {
+    // Do something when payment succeeds
+    Get.to(const PaymentSuccess());
+  }
+
+  void _handlePaymentError(PaymentFailureResponse response) {
+    // Do something when payment fails
+    Get.snackbar("Error !", "Something went wrong... Try again after some time");
+  }
+
+  void _handleExternalWallet(ExternalWalletResponse response) {
+    // Do something when an external wallet is selected
+  }
+
+
+  void addCheckout() {
+    var options = {
+      'key': 'rzp_test_yRwq76qnJF4mhY',
+      'amount': 14900, //in the smallest currency sub-unit.
+      'name': 'Netflix',
+      'description': 'Mobile',
+      'timeout': 300, // in seconds
+      'prefill': {
+        'contact': '9135456454',
+        'email': 'sample@email.com'
+      }
+    };
+
+    try {
+      _razorPay.open(options);
+    } catch (e) {
+        print(e);
+    }
+  }
   @override
   void dispose() {
-    _razorpay.clear();
+    _razorPay.clear();
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-void _handlePaymentSuccess(PaymentSuccessResponse response) {
-  // Do something when payment succeeds
-}
-
-void _handlePaymentError(PaymentFailureResponse response) {
-  // Do something when payment fails
-}
-
-void _handleExternalWallet(ExternalWalletResponse response) {
-  // Do something when an external wallet is selected
 }

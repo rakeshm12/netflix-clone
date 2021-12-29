@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
 import 'package:netflix_ui/views/carousel_page.dart';
 
@@ -14,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 2))
-        .then((value) => Get.off(const CarouselPage()));
+        .then((value) => Get.off( () => CarouselPage()));
 
     super.initState();
   }
