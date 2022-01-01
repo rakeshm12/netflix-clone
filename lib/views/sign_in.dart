@@ -95,7 +95,7 @@ class _SigninPageState extends State<SigninPage> {
                       return;
                     } else {
 
-                      Get.off( () => ChoosePlan());
+                      Get.off( () => const ChoosePlan());
                     }
                   },
                   child: const Text(
@@ -184,6 +184,6 @@ void _launchURL() async {
   try {
     if (!await launch('https://www.netflix.com/in/loginhelp')) {}
   } catch (e) {
-    print(e);
+    throw Exception(e);
   }
 }

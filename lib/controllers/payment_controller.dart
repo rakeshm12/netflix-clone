@@ -48,7 +48,7 @@ class PaymentController extends GetxController {
     try {
       _razorPay.open(options);
     } catch (e) {
-        print(e);
+       throw Exception('Something wrong');
     }
   }
   @override

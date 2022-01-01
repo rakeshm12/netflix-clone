@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 2))
-        .then((value) => Get.off( () => CarouselPage()));
+        .then((value) => Get.off( () => const CarouselPage()));
 
     super.initState();
   }

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:netflix_ui/views/carousel_page.dart';
 import 'package:netflix_ui/views/home_page.dart';
-import 'package:netflix_ui/views/splash_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

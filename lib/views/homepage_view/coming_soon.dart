@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:netflix_ui/services/api_data.dart';
@@ -27,7 +26,7 @@ class _ComingSoonState extends State<ComingSoon> {
     setState(() {
       comingSoon = result['results'];
     });
-    print(comingSoon);
+
   }
 
   @override

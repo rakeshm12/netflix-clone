@@ -33,7 +33,7 @@ class _FastLaughsState extends State<FastLaughs> {
       home: Scaffold(
         body: Stack(
           children: [
-            controller != null && controller.value.isInitialized
+            controller.value.isInitialized
                 ? InkWell(
                     onTap: () => controller.value.isPlaying
                         ? controller.pause()

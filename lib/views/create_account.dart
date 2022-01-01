@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:netflix_ui/views/choose_plan.dart';
+import 'package:netflix_ui/views/sign_in.dart';
 import 'package:netflix_ui/widgets/app_bar.dart';
 import 'package:netflix_ui/widgets/custom_button.dart';
 
@@ -104,7 +104,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   if (_emailController.text.contains(RegExp(
                           r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")) &&
                       _passwordController.text.characters.length >= 6) {
-                    Get.to(const ChoosePlan());
+                    Get.to(const SigninPage());
                   } else {
                     return;
                   }

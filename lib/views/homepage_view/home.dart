@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:netflix_ui/services/api_data.dart';
-import 'package:netflix_ui/views/homepageview/categories.dart';
-import 'package:netflix_ui/views/homepageview/movies.dart';
-import 'package:netflix_ui/views/homepageview/tv_shows.dart';
+import 'package:netflix_ui/views/homepage_view/tv_shows.dart';
 import 'package:netflix_ui/views/movie_info.dart';
 import 'package:netflix_ui/widgets/bottom_sheet.dart';
 import 'package:tmdb_api/tmdb_api.dart';
+
+import 'categories.dart';
+import 'movies.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);

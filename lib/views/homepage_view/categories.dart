@@ -33,7 +33,6 @@ class _GenreListState extends State<GenreList> {
           future: categoryList,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              print(snapshot.data!);
               return ListView.builder(
                   itemCount: snapshot.data!.genres.length,
                   itemBuilder: (context, index) {

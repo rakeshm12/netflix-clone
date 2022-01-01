@@ -40,7 +40,9 @@ dependencies:
   razorpay_flutter: ^1.2.7
   url_launcher: ^6.0.17
   lottie: ^1.2.1
-  carousel_slider: ^4.0.0
+  tmdb_api: ^2.0.0
+  video_player: ^2.2.10
+  youtube_player_flutter: ^8.0.0
 
 dev_dependencies:
   http: ^0.13.4

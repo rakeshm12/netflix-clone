@@ -17,7 +17,7 @@ class _PaymentSuccessState extends State<PaymentSuccess> with TickerProviderStat
   @override
   void initState() {
   _controller = AnimationController(vsync: this);
-  Future.delayed(const Duration(seconds: 2)).then((value) => Get.off( () => HomePage()));
+  Future.delayed(const Duration(seconds: 2)).then((value) => Get.off( () => const HomePage()));
     super.initState();
   }
 
