@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:netflix_ui/services/api_data.dart';
+import 'package:netflix_ui/models/services/api_data.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
 class ComingSoon extends StatefulWidget {

@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:netflix_ui/services/api_data.dart';
-import 'package:netflix_ui/widgets/bottom_sheet.dart';
+import 'package:netflix_ui/models/services/api_data.dart';
+import 'package:netflix_ui/views/widgets/bottom_sheet.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
 class MoviesPage extends StatefulWidget {

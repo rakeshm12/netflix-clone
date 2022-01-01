@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_ui/services/api_service.dart';
-import 'package:netflix_ui/widgets/custom_button.dart';
+import 'package:netflix_ui/models/services/api_service.dart';
+import 'package:netflix_ui/views/widgets/custom_button.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class MovieInfo extends StatefulWidget {

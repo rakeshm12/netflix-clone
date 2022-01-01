@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:netflix_ui/controllers/payment_controller.dart';
-import 'package:netflix_ui/widgets/app_bar.dart';
-import 'package:netflix_ui/widgets/payment_button.dart';
+import 'package:netflix_ui/views/widgets/app_bar.dart';
+import 'package:netflix_ui/views/widgets/payment_button.dart';
 
 class PaymentSetup extends StatelessWidget {
   PaymentSetup({Key? key}) : super(key: key);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_ui/widgets/custom_button.dart';
+import 'package:netflix_ui/views/widgets/custom_button.dart';
 
 class Downloads extends StatelessWidget {
   const Downloads({Key? key}) : super(key: key);

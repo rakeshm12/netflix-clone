@@ -3,9 +3,8 @@ import 'package:get/get.dart';
 
 import 'package:netflix_ui/views/get_started.dart';
 import 'package:netflix_ui/views/sign_in.dart';
-import 'package:netflix_ui/widgets/custom_button.dart';
-import 'package:netflix_ui/widgets/page_dots.dart';
-
+import 'package:netflix_ui/views/widgets/custom_button.dart';
+import 'package:netflix_ui/views/widgets/page_dots.dart';
 class CarouselPage extends StatefulWidget {
   const CarouselPage({Key? key}) : super(key: key);
 

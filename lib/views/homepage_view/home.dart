@@ -3,10 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:netflix_ui/services/api_data.dart';
+import 'package:netflix_ui/models/services/api_data.dart';
 import 'package:netflix_ui/views/homepage_view/tv_shows.dart';
 import 'package:netflix_ui/views/movie_info.dart';
-import 'package:netflix_ui/widgets/bottom_sheet.dart';
+import 'package:netflix_ui/views/widgets/bottom_sheet.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
 import 'categories.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:netflix_ui/views/create_account.dart';
-import 'package:netflix_ui/widgets/app_bar.dart';
-import 'package:netflix_ui/widgets/custom_button.dart';
+import 'package:netflix_ui/views/widgets/app_bar.dart';
+import 'package:netflix_ui/views/widgets/custom_button.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({Key? key}) : super(key: key);

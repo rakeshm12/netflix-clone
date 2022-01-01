@@ -1,6 +1,6 @@
 
 import 'package:get/get.dart';
-import 'package:netflix_ui/widgets/payment_success.dart';
+import 'package:netflix_ui/views/widgets/payment_success.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class PaymentController extends GetxController {

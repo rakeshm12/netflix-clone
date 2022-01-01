@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:netflix_ui/views/payment.dart';
-import 'package:netflix_ui/widgets/app_bar.dart';
-import 'package:netflix_ui/widgets/custom_button.dart';
-import 'package:netflix_ui/widgets/plan_selector.dart';
-import 'package:netflix_ui/widgets/plans_widget.dart';
+import 'package:netflix_ui/views/widgets/app_bar.dart';
+import 'package:netflix_ui/views/widgets/custom_button.dart';
+import 'package:netflix_ui/views/widgets/plan_selector.dart';
+import 'package:netflix_ui/views/widgets/plans_widget.dart';
 
 class PlansPage extends StatefulWidget {
   const PlansPage({Key? key}) : super(key: key);
