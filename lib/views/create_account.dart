@@ -15,6 +15,16 @@ class CreateAccount extends StatefulWidget {
 class _CreateAccountState extends State<CreateAccount> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  GlobalKey<FormFieldState> _emailKey = GlobalKey<FormFieldState>();
+  GlobalKey<FormFieldState> _passwordKey = GlobalKey<FormFieldState>();
+
+  validateOnClick() {
+    if (_emailKey.currentState!.validate() || _passwordKey.currentState!.validate()) {
+     return;
+    } else {
+      return;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +63,7 @@ class _CreateAccountState extends State<CreateAccount> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: TextFormField(
+                key: _emailKey,
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
@@ -78,6 +89,7 @@ class _CreateAccountState extends State<CreateAccount> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: TextFormField(
+                key: _passwordKey,
                 controller: _passwordController,
                 obscureText: true,
                 decoration: const InputDecoration(
@@ -106,7 +118,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       _passwordController.text.characters.length >= 6) {
                     Get.to(const SigninPage());
                   } else {
-                    return;
+                    return validateOnClick();
                   }
                 },
                 text: const Text(
