@@ -15,14 +15,12 @@ class CreateAccount extends StatefulWidget {
 class _CreateAccountState extends State<CreateAccount> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  GlobalKey<FormFieldState> _emailKey = GlobalKey<FormFieldState>();
-  GlobalKey<FormFieldState> _passwordKey = GlobalKey<FormFieldState>();
+  final GlobalKey<FormFieldState> _emailKey = GlobalKey<FormFieldState>();
+  final GlobalKey<FormFieldState> _passwordKey = GlobalKey<FormFieldState>();
 
   validateOnClick() {
     if (_emailKey.currentState!.validate() || _passwordKey.currentState!.validate()) {
      return;
-    } else {
-      return;
     }
   }
 
