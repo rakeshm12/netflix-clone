@@ -23,7 +23,13 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
-        child: Image.asset('assets/logofull.png' , fit: BoxFit.contain,)
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/logofull.png' , fit: BoxFit.contain,),
+            CircularProgressIndicator(color: Colors.red,strokeWidth: 2,)
+          ],
+        )
         // Text(
         //   'NETFLIX',
         //   style: TextStyle(
