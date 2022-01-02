@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:netflix_ui/models/services/api_data.dart';
 import 'package:netflix_ui/views/homepage_view/tv_shows.dart';
-import 'package:netflix_ui/views/movie_info.dart';
+import 'package:netflix_ui/views/homepage_view/movie_info.dart';
 import 'package:netflix_ui/views/widgets/bottom_sheet.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:netflix_ui/models/genre.dart';
+import 'package:netflix_ui/models/genre_model.dart';
 import 'package:netflix_ui/models/services/api_service.dart';
 
 class GenreList extends StatefulWidget {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'homepage_view/coming_soon.dart';
-import 'homepage_view/downloads.dart';
-import 'homepage_view/fast_laugh.dart';
-import 'homepage_view/game_page.dart';
-import 'homepage_view/home.dart';
+import 'coming_soon.dart';
+import 'downloads.dart';
+import 'fast_laugh.dart';
+import 'game_page.dart';
+import 'home.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

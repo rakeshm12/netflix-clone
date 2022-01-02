@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:netflix_ui/models/genre.dart';
+import 'package:netflix_ui/models/genre_model.dart';
 
 import 'api_data.dart';
 
@@ -18,7 +18,7 @@ class ApiManager {
         listOfGenre = Movie.fromJson(categories);
       }
     } on Exception catch (_) {
-     throw Exception('Something went wrong');
+      throw Exception('Something went wrong');
     }
     return listOfGenre;
   }
@@ -26,32 +26,36 @@ class ApiManager {
   //  movie page home
 
   Future getVideos(int id) async {
-    final response = await http.get(Uri.parse(
-        Api.apiUrl +
-            'movie/' +
-            id.toString() +
-            '/videos?api_key=' +
-            Api.apiKey +
-            '&language=en-US'));
-    if (response.statusCode == 200) {
-      var jsonData = json.decode(response.body);
-      return jsonData['results'][0]['key'];
-    } else {
+    var response = await http.get(Uri.parse(Api.apiUrl +
+        'movie/' +
+        id.toString() +
+        '/videos?api_key=' +
+        Api.apiKey +
+        '&language=en-US'));
+    try {
+      if (response.statusCode == 200) {
+        var jsonData = json.decode(response.body);
+        return jsonData['results'][0]['key'];
+      }
+    } on Exception catch (_) {
       throw Exception('Something went wrong!');
     }
   }
 
   Future getVideoDetails(int id) async {
-    final response = await http.get(Uri.parse(Api.apiUrl +
+    var response = await http.get(Uri.parse(Api.apiUrl +
         'movie/' +
         id.toString() +
         '?api_key=' +
         Api.apiKey +
         '&language=en-US'));
-    if (response.statusCode == 200) {
-      var jsonData = json.decode(response.body);
-      return jsonData;
-    } else {
+
+    try {
+      if (response.statusCode == 200) {
+        var jsonData = json.decode(response.body);
+        return jsonData;
+      }
+    } on Exception catch (_) {
       throw Exception('Something went wrong');
     }
   }
